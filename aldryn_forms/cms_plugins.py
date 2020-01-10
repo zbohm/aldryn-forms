@@ -2,6 +2,7 @@
 from PIL import Image
 
 from django import forms
+from django.conf import settings
 from django.db.models import query
 from django.contrib import messages
 from django.contrib.admin import TabularInline
@@ -9,12 +10,13 @@ from django.core.validators import MinLengthValidator
 from django.template.loader import select_template
 from django.utils.safestring import mark_safe
 from django.utils.six import text_type
-from django.utils.translation import ugettext, ugettext_lazy as _
+from django.utils.translation import get_language, ugettext, ugettext_lazy as _
 
 from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
 
 from emailit.api import send_mail
+from emailit.utils import get_template_names
 
 from filer.models import filemodels, imagemodels
 from sizefield.utils import filesizeformat
@@ -214,11 +216,29 @@ class FormPlugin(FieldContainer):
             'form_plugin': instance,
         }
 
+        from_email = None
+        for field_name, field_instance in form.fields.items():
+            if hasattr(field_instance, '_model_instance') and \
+                    field_instance._model_instance.plugin_type == 'EmailIntoFromField':
+                if form.cleaned_data.get(field_name):
+                    from_email = form.cleaned_data[field_name]
+                    break
+
+        subject_template_base = getattr(settings, 'ALDRYN_FORMS_EMAIL_SUBJECT_TEMPLATES_BASE',
+            getattr(settings, 'ALDRYN_FORMS_EMAIL_TEMPLATES_BASE', None))
+        if subject_template_base:
+            language = instance.language or get_language()
+            subject_templates = get_template_names(language, subject_template_base, 'subject', 'txt')
+        else:
+            subject_templates = None
+
         send_mail(
             recipients=[user.email for user in recipients],
             context=context,
-            template_base='aldryn_forms/emails/notification',
+            template_base=getattr(settings, 'ALDRYN_FORMS_EMAIL_TEMPLATES_BASE', 'aldryn_forms/emails/notification'),
+            subject_templates=subject_templates,
             language=instance.language,
+            from_email=from_email,
         )
 
         users_notified = [
@@ -584,6 +604,10 @@ class EmailField(BaseTextField):
             self.send_notification_email(email, form, instance)
 
 
+class EmailIntoFromField(EmailField):
+    name = _('Email into From Field')
+
+
 class FileField(Field):
     name = _('File upload field')
     model = models.FileUploadFieldPlugin
@@ -884,6 +908,7 @@ class SubmitButton(FormElement):
 
 plugin_pool.register_plugin(BooleanField)
 plugin_pool.register_plugin(EmailField)
+plugin_pool.register_plugin(EmailIntoFromField)
 plugin_pool.register_plugin(FileField)
 plugin_pool.register_plugin(HiddenField)
 plugin_pool.register_plugin(PhoneField)
