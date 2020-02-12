@@ -1,12 +1,9 @@
 # -*- coding: utf-8 -*-
-from collections import defaultdict, namedtuple, OrderedDict
-from functools import partial
 import json
 import warnings
+from collections import OrderedDict, defaultdict, namedtuple
+from functools import partial
 
-from cms.models.fields import PageField
-from cms.models.pluginmodel import CMSPlugin
-from cms.utils.plugins import build_plugin_tree, downcast_plugins
 from django.conf import settings
 from django.db import models
 from django.db.models.functions import Coalesce
@@ -14,13 +11,18 @@ from django.utils.encoding import python_2_unicode_compatible
 from django.utils.functional import cached_property
 from django.utils.six import text_type
 from django.utils.translation import ugettext_lazy as _
-from djangocms_attributes_field.fields import AttributesField
 
+from cms.cms_plugins import AliasPlugin
+from cms.models.fields import PageField
+from cms.models.pluginmodel import CMSPlugin
+from cms.utils.plugins import build_plugin_tree, downcast_plugins
+from djangocms_attributes_field.fields import AttributesField
 from filer.fields.folder import FilerFolderField
 from sizefield.models import FileSizeField
 
 from .helpers import is_form_element
-from .utils import ALDRYN_FORMS_ACTION_BACKEND_KEY_MAX_SIZE, action_backend_choices
+from .utils import (ALDRYN_FORMS_ACTION_BACKEND_KEY_MAX_SIZE,
+                    action_backend_choices)
 
 AUTH_USER_MODEL = getattr(settings, 'AUTH_USER_MODEL', 'auth.User')
 
@@ -237,11 +239,15 @@ class BaseFormPlugin(CMSPlugin):
         field_type_occurrences = defaultdict(lambda: 1)
 
         form_elements = self.get_form_elements()
-        field_plugins = [
-            plugin for plugin in form_elements
-            if issubclass(plugin.get_plugin_class(), Field)
-        ]
+        field_plugins = []
+        for plugin in form_elements:
+            if issubclass(plugin.get_plugin_class(), Field):
+                field_plugins.append(plugin)
+            elif issubclass(plugin.get_plugin_class(), AliasPlugin) and \
+                    issubclass(plugin.plugin.get_plugin_class(), Field):
+                field_plugins.append(plugin.plugin.get_plugin_instance()[0])
 
+        unique_field_names = []
         for field_plugin in field_plugins:
             field_type = field_plugin.field_type
 
@@ -263,6 +269,11 @@ class BaseFormPlugin(CMSPlugin):
 
             if field_id in field_occurrences:
                 field_occurrences[field_id] += 1
+
+            # Make filed names unique.
+            while field_name in unique_field_names:
+                field_name += "_"
+            unique_field_names.append(field_name)
 
             field = FormField(
                 name=field_name,
