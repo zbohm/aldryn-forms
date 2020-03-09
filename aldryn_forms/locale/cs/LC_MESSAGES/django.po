@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-13 09:31+0100\n"
+"POT-Creation-Date: 2020-03-09 14:15+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Petr Peterka <petr.peterka@nic.cz>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,44 +17,45 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: action_backends.py:13 models.py:103 models.py:528
+#: action_backends.py:12 models.py:99 models.py:517
 msgid "Default"
 msgstr "Výchozí hodnota"
 
-#: action_backends.py:23
+#: action_backends.py:22
 msgid "Email only"
 msgstr "Pouze e-mail"
 
-#: action_backends.py:31
+#: action_backends.py:30
 msgid "None"
 msgstr "Bez hodnoty"
 
-#: admin/base.py:40
+#: admin/base.py:39
 msgid "data"
 msgstr "data"
 
-#: admin/base.py:56
+#: admin/base.py:55
 msgid "people notified"
 msgstr "uživatelé, kteří budou upozorněni"
 
-#: admin/forms.py:34
+#: admin/forms.py:33
 msgid "from date"
 msgstr "od data"
 
-#: admin/forms.py:39
+#: admin/forms.py:38
 msgid "to date"
 msgstr "do data"
 
-#: admin/forms.py:44
+#: admin/forms.py:43
 msgid "language"
 msgstr "jazyk"
 
-#: admin/forms.py:59
+#: admin/forms.py:58
 msgid ""
 "Export failed! More than 65,536 entries found, exceeded Excel limitation!"
-msgstr "Export selhal! Bylo nalezeno více než 65 536 hodnot, Excel limit překročen!"
+msgstr ""
+"Export selhal! Bylo nalezeno více než 65 536 hodnot, Excel limit překročen!"
 
-#: admin/forms.py:133
+#: admin/forms.py:132
 msgid "Please select at least one field to export."
 msgstr "Prosím, k exportu zvolte alespoň jedno pole."
 
@@ -62,190 +63,311 @@ msgstr "Prosím, k exportu zvolte alespoň jedno pole."
 msgid "No records found"
 msgstr "Záznamy nenalezeny"
 
-#: cms_apps.py:9 cms_plugins.py:40
+#: boilerplates/bootstrap3/templates/admin/aldryn_forms/display/submission_data.html:3
+#: boilerplates/legacy/templates/admin/aldryn_forms/display/submission_data.html:3
+#: templates/admin/aldryn_forms/display/submission_data.html:3
+msgid "Field"
+msgstr "Pole"
+
+#: boilerplates/bootstrap3/templates/admin/aldryn_forms/display/submission_data.html:4
+#: boilerplates/legacy/templates/admin/aldryn_forms/display/submission_data.html:4
+#: models.py:367 models.py:541
+#: templates/admin/aldryn_forms/display/submission_data.html:4
+msgid "Label"
+msgstr "Jmenovka"
+
+#: boilerplates/bootstrap3/templates/admin/aldryn_forms/display/submission_data.html:5
+#: boilerplates/legacy/templates/admin/aldryn_forms/display/submission_data.html:5
+#: models.py:516 templates/admin/aldryn_forms/display/submission_data.html:5
+msgid "Value"
+msgstr "Hodnota"
+
+#: boilerplates/bootstrap3/templates/admin/aldryn_forms/export.html:5
+#: boilerplates/legacy/templates/admin/aldryn_forms/export.html:4
+#: boilerplates/legacy/templates/admin/aldryn_forms/export_wizard.html:4
+#: templates/admin/aldryn_forms/export.html:5
+msgid "Export form submissions"
+msgstr "Exportovat odeslané formuláře"
+
+#: boilerplates/bootstrap3/templates/admin/aldryn_forms/export.html:8
+#: boilerplates/legacy/templates/admin/aldryn_forms/export.html:7
+#: boilerplates/legacy/templates/admin/aldryn_forms/export_wizard.html:7
+#: templates/admin/aldryn_forms/export.html:8
+msgid "Please correct the error below."
+msgid_plural "Please correct the errors below."
+msgstr[0] "Opravte chybu níže."
+msgstr[1] "Opravte chyby níže."
+
+#: boilerplates/bootstrap3/templates/admin/aldryn_forms/export.html:30
+#: boilerplates/bootstrap3/templates/admin/aldryn_forms/export_wizard.html:11
+#: boilerplates/legacy/templates/admin/aldryn_forms/export.html:27
+#: boilerplates/legacy/templates/admin/aldryn_forms/export_wizard.html:30
+#: templates/admin/aldryn_forms/export.html:30
+#: templates/admin/aldryn_forms/export_wizard.html:11
+msgid "Export"
+msgstr "Export"
+
+#: boilerplates/bootstrap3/templates/admin/aldryn_forms/export_wizard.html:13
+#: boilerplates/legacy/templates/admin/aldryn_forms/export_wizard.html:32
+#: templates/admin/aldryn_forms/export_wizard.html:13
+msgid "Continue"
+msgstr "Pokračovat"
+
+#: boilerplates/bootstrap3/templates/admin/aldryn_forms/formsubmission/change_list.html:9
+#: boilerplates/legacy/templates/admin/aldryn_forms/formsubmission/change_list.html:9
+#: templates/admin/aldryn_forms/formsubmission/change_list.html:9
+msgid "Export Form Entries"
+msgstr "Exportovat položky formuláře"
+
+#: boilerplates/bootstrap3/templates/aldryn_forms/email_notifications/emails/notification.body.html:9
+#: boilerplates/bootstrap3/templates/aldryn_forms/email_notifications/emails/notification.body.txt:8
+#: boilerplates/bootstrap3/templates/aldryn_forms/emails/notification.body.html:3
+#: boilerplates/bootstrap3/templates/aldryn_forms/emails/notification.body.txt:2
+#: boilerplates/bootstrap3/templates/aldryn_forms/emails/user/notification.body.txt:5
+#: boilerplates/legacy/templates/aldryn_forms/email_notifications/emails/notification.body.html:9
+#: boilerplates/legacy/templates/aldryn_forms/email_notifications/emails/notification.body.txt:8
+#: boilerplates/legacy/templates/aldryn_forms/emails/notification.body.html:3
+#: boilerplates/legacy/templates/aldryn_forms/emails/notification.body.txt:2
+#: boilerplates/legacy/templates/aldryn_forms/emails/user/notification.body.txt:5
+#: templates/aldryn_forms/email_notifications/emails/notification.body.html:9
+#: templates/aldryn_forms/email_notifications/emails/notification.body.txt:8
+#: templates/aldryn_forms/emails/notification.body.html:3
+#: templates/aldryn_forms/emails/notification.body.txt:2
+#: templates/aldryn_forms/emails/user/notification.body.txt:5
+#, python-format
+msgid "Form name: %(form_name)s"
+msgstr "Jméno formuláře: %(form_name)s"
+
+#: boilerplates/bootstrap3/templates/aldryn_forms/email_notifications/emails/notification.subject.txt:1
+#: boilerplates/bootstrap3/templates/aldryn_forms/emails/notification.subject.txt:1
+#: boilerplates/bootstrap3/templates/aldryn_forms/emails/user/notification.subject.txt:1
+#: boilerplates/legacy/templates/aldryn_forms/email_notifications/emails/notification.subject.txt:1
+#: boilerplates/legacy/templates/aldryn_forms/emails/notification.subject.txt:1
+#: boilerplates/legacy/templates/aldryn_forms/emails/user/notification.subject.txt:1
+#: templates/aldryn_forms/email_notifications/emails/notification.subject.txt:1
+#: templates/aldryn_forms/emails/notification.subject.txt:1
+#: templates/aldryn_forms/emails/user/notification.subject.txt:1
+#, python-format
+msgid "[Form submission] %(form_name)s"
+msgstr "[Odeslání formuláře] %(form_name)s"
+
+#: boilerplates/bootstrap3/templates/aldryn_forms/field.html:7
+#: boilerplates/bootstrap3/templates/aldryn_forms/fields/emailfield.html:9
+#: boilerplates/bootstrap3/templates/aldryn_forms/fields/filefield.html:9
+#: boilerplates/bootstrap3/templates/aldryn_forms/fields/imagefield.html:9
+#: boilerplates/bootstrap3/templates/aldryn_forms/fields/multiplecheckboxselectfield.html:9
+#: boilerplates/bootstrap3/templates/aldryn_forms/fields/multipleselectfield.html:9
+#: boilerplates/bootstrap3/templates/aldryn_forms/fields/radioselectfield.html:8
+#: boilerplates/bootstrap3/templates/aldryn_forms/fields/selectfield.html:9
+#: boilerplates/bootstrap3/templates/aldryn_forms/fields/textareafield.html:9
+#: boilerplates/bootstrap3/templates/aldryn_forms/fields/textfield.html:9
+#: templates/aldryn_forms/field.html:14
+#: templates/aldryn_forms/fields/multiplecheckboxselectfield.html:9
+msgid "Required field"
+msgstr "Povinné pole"
+
+#: boilerplates/bootstrap3/templates/aldryn_forms/form.html:19
+#, python-format
+msgid ""
+"Thank you for submitting your information, you will be <a href="
+"\"%(form_success_url)s\">redirected shortly</a>."
+msgstr ""
+"Děkujeme za odeslání formuláře. Během chvilky budete přesměrováni na <a href=\"%(form_success_url)s\">tuto "
+"adresu</a>."
+
+#: boilerplates/bootstrap3/templates/aldryn_forms/form.html:24
+#: templates/aldryn_forms/form.html:21
+msgid "Thank you for submitting your information."
+msgstr "Děkujeme Vám za vyplnění formuláře."
+
+#: cms_apps.py:8 cms_plugins.py:56
 msgid "Forms"
 msgstr "Formuláře"
 
-#: cms_plugins.py:49
+#: cms_plugins.py:65
 msgid "Form"
 msgstr "Formulář"
 
-#: cms_plugins.py:50
+#: cms_plugins.py:66
 msgid "Form types"
 msgstr "Typy formulářů"
 
-#: cms_plugins.py:64 cms_plugins.py:226 cms_plugins.py:401
-#: contrib/email_notifications/cms_plugins.py:136
+#: cms_plugins.py:80 cms_plugins.py:260 cms_plugins.py:435
+#: contrib/email_notifications/cms_plugins.py:137
 msgid "Advanced Settings"
 msgstr "Pokročilá nastavení"
 
-#: cms_plugins.py:188
+#: cms_plugins.py:204
 msgid "The form has been sent."
 msgstr "Formulář byl odeslán."
 
-#: cms_plugins.py:217
+#: cms_plugins.py:251
 msgid "Fieldset"
 msgstr "Skupina polí"
 
-#: cms_plugins.py:254
+#: cms_plugins.py:288
 msgid "Form fields"
 msgstr "Pole formuláře"
 
-#: cms_plugins.py:475
+#: cms_plugins.py:509
 msgid "Text Field"
 msgstr "Textové pole"
 
-#: cms_plugins.py:479
+#: cms_plugins.py:513
 msgid "Text Area Field"
 msgstr "Víceřádkové textové pole"
 
-#: cms_plugins.py:520
+#: cms_plugins.py:554
 msgid "Hidden Field"
 msgstr "Skryté pole"
 
-#: cms_plugins.py:528
+#: cms_plugins.py:562
 msgid "Phone Field"
 msgstr "Pole Telefon"
 
-#: cms_plugins.py:533
+#: cms_plugins.py:567
 msgid "Number Field"
 msgstr "Pole Číslo"
 
-#: cms_plugins.py:538
+#: cms_plugins.py:572
 msgid "Email Field"
 msgstr "Pole E-mail"
 
-#: cms_plugins.py:574
+#: cms_plugins.py:608
+msgid "Email into From Field"
+msgstr "Pole E-mail pro pole From"
+
+#: cms_plugins.py:612
 msgid "File upload field"
 msgstr "Pole pro nahrání souboru"
 
-#: cms_plugins.py:654
+#: cms_plugins.py:692
 msgid "Image upload field"
 msgstr "Pole pro nahrání obrázku"
 
-#: cms_plugins.py:692
+#: cms_plugins.py:730
 msgid "Yes/No Field"
 msgstr "Pole Ano/Ne"
 
-#: cms_plugins.py:716
+#: cms_plugins.py:754
 msgid "Yes"
 msgstr "Ano"
 
-#: cms_plugins.py:716
+#: cms_plugins.py:754
 msgid "No"
 msgstr "Ne"
 
-#: cms_plugins.py:724
+#: cms_plugins.py:762
 msgid "Select Field"
 msgstr "Pole Seznam hodnot"
 
-#: cms_plugins.py:760
+#: cms_plugins.py:798
 msgid "Multiple Select Field"
 msgstr "Pole Seznam více hodnot"
 
-#: cms_plugins.py:799
+#: cms_plugins.py:837
 msgid "Multiple Checkbox Field"
 msgstr "Pole zaškrtávacích políček"
 
-#: cms_plugins.py:803
+#: cms_plugins.py:841
 msgid "Radio Select Field"
 msgstr "Pole přepínačů"
 
-#: cms_plugins.py:846
+#: cms_plugins.py:884
 msgid "Captcha Field"
 msgstr "Pole Captcha"
 
-#: cms_plugins.py:867
+#: cms_plugins.py:905
 msgid "Submit Button"
 msgstr "Tlačítko Odeslat"
 
-#: contrib/email_notifications/cms_plugins.py:25
+#: contrib/email_notifications/cms_plugins.py:26
 msgid "new email notification"
 msgstr "nové e-mailové upozornění"
 
-#: contrib/email_notifications/cms_plugins.py:26
+#: contrib/email_notifications/cms_plugins.py:27
 msgid "new email notifications"
 msgstr "nová e-mailová upozornění"
 
-#: contrib/email_notifications/cms_plugins.py:50 models.py:156
+#: contrib/email_notifications/cms_plugins.py:51 models.py:152
 msgid "Recipients"
 msgstr "Příjemci"
 
-#: contrib/email_notifications/cms_plugins.py:62
+#: contrib/email_notifications/cms_plugins.py:63
 #, python-brace-format
 msgid ""
 "variables can be used with by wrapping with \"${variable}\" like ${variable}"
 msgstr "proměnné mohou být použity obalením \"${variable}\" jako ${variable}"
 
-#: contrib/email_notifications/cms_plugins.py:91
+#: contrib/email_notifications/cms_plugins.py:92
 msgid "Email"
 msgstr "E-mail"
 
-#: contrib/email_notifications/cms_plugins.py:116
+#: contrib/email_notifications/cms_plugins.py:117
 msgid "available text variables"
 msgstr "dostupné textové proměnné"
 
-#: contrib/email_notifications/cms_plugins.py:120
+#: contrib/email_notifications/cms_plugins.py:121
 msgid "Form (Advanced)"
 msgstr "Formulář (Pokročilé)"
 
-#: contrib/email_notifications/models.py:26
+#: contrib/email_notifications/models.py:28
 msgid "default"
 msgstr "základní hodnota"
 
-#: contrib/email_notifications/models.py:60
+#: contrib/email_notifications/models.py:62
 msgid "Email notification"
 msgstr "E-mailová notifikace"
 
-#: contrib/email_notifications/models.py:61
+#: contrib/email_notifications/models.py:63
 msgid "Email notifications"
 msgstr "E-mailové notifikace"
 
-#: contrib/email_notifications/models.py:64
+#: contrib/email_notifications/models.py:66
 msgid "theme"
 msgstr "motiv"
 
-#: contrib/email_notifications/models.py:66
+#: contrib/email_notifications/models.py:68
 msgid "Provides the base theme for the email."
 msgstr "Zajišťuje základní motiv pro e-mail."
 
-#: contrib/email_notifications/models.py:70
+#: contrib/email_notifications/models.py:72
 msgid "to name"
 msgstr "pro jméno"
 
-#: contrib/email_notifications/models.py:75
+#: contrib/email_notifications/models.py:77
 msgid "to email"
 msgstr "na e-mail"
 
-#: contrib/email_notifications/models.py:81
+#: contrib/email_notifications/models.py:83
 msgid "to user"
 msgstr "pro uživatele"
 
-#: contrib/email_notifications/models.py:88
+#: contrib/email_notifications/models.py:89
 msgid "from name"
 msgstr "od jména"
 
-#: contrib/email_notifications/models.py:93
+#: contrib/email_notifications/models.py:94
 msgid "from email"
 msgstr "z e-mailu"
 
-#: contrib/email_notifications/models.py:98
+#: contrib/email_notifications/models.py:99
 msgid "subject"
 msgstr "předmět"
 
-#: contrib/email_notifications/models.py:103
+#: contrib/email_notifications/models.py:104
 msgid "email body (txt)"
 msgstr "tělo zprávy (txt)"
 
-#: contrib/email_notifications/models.py:105
+#: contrib/email_notifications/models.py:106
 msgid "used when rendering the email in text only mode."
 msgstr "Použito pouze pro zobrazení zprávy v textovém módu."
 
-#: contrib/email_notifications/models.py:108
+#: contrib/email_notifications/models.py:109
 msgid "email body (html)"
 msgstr "tělo zprávy (html)"
 
-#: contrib/email_notifications/models.py:110
+#: contrib/email_notifications/models.py:111
 msgid "used when rendering the email in html."
 msgstr "Použito pouze pro zobrazení zprávy v html módu."
 
@@ -257,395 +379,347 @@ msgstr "Prosím, zadejte příjemce."
 msgid "Fields"
 msgstr "Pole"
 
-#: forms.py:29
+#: forms.py:28
 #, python-format
 msgid ""
 "File size must be under %(max_size)s. Current file size is %(actual_size)s."
-msgstr "Velikost souboru musí být menší než %(max_size)s. Současná velikost souboru je %(actual_size)s."
+msgstr ""
+"Velikost souboru musí být menší než %(max_size)s. Současná velikost souboru "
+"je %(actual_size)s."
 
-#: forms.py:64
+#: forms.py:63
 #, python-format
 msgid ""
 "Image width must be under %(max_size)s pixels. Current width is "
 "%(actual_size)s pixels."
-msgstr "Šířka obrázku musí být menší než %(max_size)s pixelů. Současná šířka obrázku je "
-"%(actual_size)s pixelů."
+msgstr ""
+"Šířka obrázku musí být menší než %(max_size)s pixelů. Současná šířka obrázku "
+"je %(actual_size)s pixelů."
 
-#: forms.py:74
+#: forms.py:73
 #, python-format
 msgid ""
 "Image height must be under %(max_size)s pixels. Current height is "
 "%(actual_size)s pixels."
-msgstr "Výška obrázku musí být menší než %(max_size)s pixelů. Současná výška obrázku je "
-"%(actual_size)s pixelů."
+msgstr ""
+"Výška obrázku musí být menší než %(max_size)s pixelů. Současná výška obrázku "
+"je %(actual_size)s pixelů."
 
-#: forms.py:170
+#: forms.py:168
 msgid "Please provide CMS page for redirect."
 msgstr "Nastavte stránku CMS pro přesměrování."
 
-#: forms.py:175
+#: forms.py:173
 msgid "Please provide an absolute URL for redirect."
 msgstr "Nastavte absolutní adresu pro přesměrování."
 
-#: forms.py:222
+#: forms.py:220
 msgid "Min value can not be greater than max value."
 msgstr "Nejmenší hodnota nesmí být větší než největší hodnota."
 
-#: forms.py:231
+#: forms.py:229
 msgid "Min length"
 msgstr "Minimální délka"
 
-#: forms.py:232
+#: forms.py:230
 msgid "Required number of characters to type."
 msgstr "Požadovaný počet znaků pro psaní."
 
-#: forms.py:234
+#: forms.py:232
 msgid "Max length"
 msgstr "Maximální délka"
 
-#: forms.py:235
+#: forms.py:233
 msgid "Maximum number of characters to type."
 msgstr "Maximální počet znaků pro psaní."
 
-#: forms.py:275
+#: forms.py:273
 msgid ""
 "Explanatory text displayed next to input field. Just like this one. You can "
 "use MAXSIZE as a placeholder for the maximum size configured below."
 msgstr ""
 "Vysvětlující text je zobrazen vedle pole formuláře. Stejně jako tento. "
-"Můžete použít volbu MAXSIZE jako zástupce pro maximální velikost nestavitelnou níže."
+"Můžete použít volbu MAXSIZE jako zástupce pro maximální velikost "
+"nestavitelnou níže."
 
-#: forms.py:288
+#: forms.py:286
 msgid ""
 "Explanatory text displayed next to input field. Just like this one. You can "
 "use MAXSIZE, MAXWIDTH, MAXHEIGHT as a placeholders for the maximum file size "
 "and dimensions configured below."
 msgstr ""
 "Vysvětlující text je zobrazen vedle pole formuláře. Stejně jako tento. "
-"Můžete použít volby MAXSIZE, MAXWIDTH, MAXHEIGHT jako zástupce "
-"pro maximální velikost souboru a jeho rozměrů nestavitelných níže."
+"Můžete použít volby MAXSIZE, MAXWIDTH, MAXHEIGHT jako zástupce pro maximální "
+"velikost souboru a jeho rozměrů nestavitelných níže."
 
-#: forms.py:312
+#: forms.py:310
 msgid "Min choices"
 msgstr "Minimální výběr"
 
-#: forms.py:313
+#: forms.py:311
 msgid "Required amount of elements to chose."
 msgstr "Zvolte počet požadovaných položek."
 
-#: forms.py:315
+#: forms.py:313
 msgid "Max choices"
 msgstr "Maximální výběr"
 
-#: forms.py:316
-msgid "Maximum amount of elements to cho!o!se."
-msgstr "Zvolte maximální počet požadovaných pol!o!žek."
+#: forms.py:314
+msgid "Maximum amount of elements to chose."
+msgstr "Zvolte maximální počet požadovaných položek."
 
-#: models.py:111 models.py:175
+#: models.py:107 models.py:171
 msgid "CMS Page"
 msgstr "CMS stránka"
 
-#: models.py:112 models.py:143
+#: models.py:108 models.py:139
 msgid "Absolute URL"
 msgstr "Absolutní adresa URL"
 
-#: models.py:119 models.py:370
+#: models.py:115 models.py:362
 msgid "Name"
 msgstr "Jméno"
 
-#: models.py:121
+#: models.py:117
 msgid "Used to filter out form submissions."
 msgstr "Odfiltrováno při odesláních formuláře."
 
-#: models.py:124 models.py:378
+#: models.py:120 models.py:370
 msgid "Error message"
 msgstr "Chybové hlášení"
 
-#: models.py:127
+#: models.py:123
 msgid "An error message that will be displayed if the form doesn't validate."
 msgstr "Chybové hlášení, které se zobrazí, pokud nelze formulář potvrdit."
 
-#: models.py:131
+#: models.py:127
 msgid "Success message"
 msgstr "Hlášení při úspešném odeslání"
 
-#: models.py:134
-msgid "A success message that will be displayed."
-msgstr "Hlášení o uspěchu, které bude zobrazeno."
+#: models.py:130
+msgid "An success message that will be displayed."
+msgstr "Hlášení o úspěchu, které bude zobrazeno."
 
-#: models.py:137
+#: models.py:133
 msgid "Redirect to"
 msgstr "Přesměrovat na"
 
-#: models.py:140
+#: models.py:136
 msgid "Where to redirect the user when the form has been successfully sent?"
 msgstr "Kam přesměrovat uživatele po úspěšném odeslání formuláře?"
 
-#: models.py:145 models.py:358 models.py:425 models.py:554
+#: models.py:141 models.py:352 models.py:417 models.py:543
 msgid "custom css classes"
 msgstr "vlastní css třídy"
 
-#: models.py:147
+#: models.py:143
 msgid "form template"
 msgstr "šablona formuláře"
 
-#: models.py:159
+#: models.py:155
 msgid "People who will get the form content via e-mail."
 msgstr "Lidé, kteří obdrží obsah formuláře e-mailem."
 
-#: models.py:163
+#: models.py:159
 msgid "Action backend"
 msgstr "Akce po odeslání"
 
-#: models.py:170 models.py:399
+#: models.py:166 models.py:391
 msgid "Attributes"
 msgstr "Atributy"
 
-#: models.py:356
+#: models.py:350
 msgid "Legend"
 msgstr "Nápověda"
 
-#: models.py:372
+#: models.py:364
 msgid "Used to set the field name"
 msgstr "Použito pro nastavení jména pole"
 
-#: models.py:375 models.py:552
-#: templates/admin/aldryn_forms/display/submission_data.html:4
-msgid "Label"
-msgstr "Jmenovka"
-
-#: models.py:376
+#: models.py:368
 msgid "Field is required"
 msgstr "Toto pole je povinné"
 
-#: models.py:381
+#: models.py:373
 msgid ""
 "Error message displayed if the required field is left empty. Default: \"This "
 "field is required\"."
-msgstr "Pokud požadované pole zůstane nevyplněno, zobrazí se chybové hlášení. Výchozí: \"Toto pole je povinné\"."
+msgstr ""
+"Pokud požadované pole zůstane nevyplněno, zobrazí se chybové hlášení. "
+"Výchozí: \"Toto pole je povinné\"."
 
-#: models.py:385
+#: models.py:377
 msgid "Placeholder text"
 msgstr "Zástupný text"
 
-#: models.py:388
+#: models.py:380
 msgid ""
 "Default text in a form. Disappears when user starts typing. Example: "
 "\"email@example.com\""
-msgstr "Výchozí text ve formuláři. Skryje se při psaní do formuláře. Příklad: \"email@example.com\""
+msgstr ""
+"Výchozí text ve formuláři. Skryje se při psaní do formuláře. Příklad: "
+"\"email@example.com\""
 
-#: models.py:392
+#: models.py:384
 msgid "Help text"
 msgstr "Nápověda"
 
-#: models.py:395
-msgid "Explanatory text displayed next to !a! !form! field. Just like this one."
-msgstr "Vysvětlivka zobr!a!zená vedle pole !form!uláře. Tak jako tato."
+#: models.py:387
+msgid "Explanatory text displayed next to input field. Just like this one."
+msgstr "Vysvětlivka zobrazená vedle pole formuláře. Tak jako tato."
 
-#: models.py:407
+#: models.py:399
 msgid "Min value"
 msgstr "Nejnižší hodnota"
 
-#: models.py:413
+#: models.py:405
 msgid "Max value"
 msgstr "Nejvyšší hodnota"
 
-#: models.py:418
+#: models.py:410
 msgid "Initial value"
 msgstr "Počáteční hodnota"
 
-#: models.py:421
+#: models.py:413
 msgid "Default value of field."
 msgstr "Základní hodnota pole."
 
-#: models.py:460
+#: models.py:450
 msgid "columns"
 msgstr "sloupce"
 
-#: models.py:462
+#: models.py:452
 msgid "rows"
 msgstr "řádky"
 
-#: models.py:467
+#: models.py:457
 msgid "send notification when form is submitted"
 msgstr "při odeslání formuláře zaslat upozornění"
 
-#: models.py:469
+#: models.py:459
 msgid ""
 "When checked, the value of this field will be used to send an email "
 "notification."
-msgstr "Je-li zaškrtnuto, bude se při odeslání formuláře zasílat e-mailové upozornění."
+msgstr ""
+"Je-li zaškrtnuto, bude se při odeslání formuláře zasílat e-mailové "
+"upozornění."
 
-#: models.py:473
+#: models.py:463
 msgid "email subject"
 msgstr "předmět zprávy"
 
-#: models.py:477
+#: models.py:467
 msgid "Used as the email subject when email_send_notification is checked."
-msgstr "Použito jako předmět e-mailu, pokud je zaškrtnuto pole Při odeslání formuláře zaslat upozornění."
+msgstr ""
+"Použito jako předmět e-mailu, pokud je zaškrtnuto pole Při odeslání "
+"formuláře zaslat upozornění."
 
-#: models.py:481
+#: models.py:471
 msgid "Additional email body"
 msgstr "Další část textu e-mailu"
 
-#: models.py:484
+#: models.py:474
 msgid "Additional body text used when email notifications are active."
-msgstr "Další část textu je použita, pokud je zatržen přepínač Další část textu e-mailu."
+msgstr ""
+"Další část textu je použita, pokud je zatržen přepínač Další část textu e-"
+"mailu."
 
-#: models.py:491
+#: models.py:481
 msgid "Upload files to"
 msgstr "Nahrajte soubory do"
 
-#: models.py:492
+#: models.py:482
 msgid ""
 "Select a folder to which all files submitted through this field will be "
 "uploaded to."
-msgstr "Zvolte složku, kam budou nahrány všechny soubory přiložené pomocí tohoto pole."
+msgstr ""
+"Zvolte složku, kam budou nahrány všechny soubory přiložené pomocí tohoto "
+"pole."
 
-#: models.py:497
+#: models.py:486
 msgid "Maximum file size"
 msgstr "Maximální velikost souboru"
 
-#: models.py:499
+#: models.py:488
 msgid ""
 "The maximum file size of the upload, in bytes. You can use common size "
 "suffixes (kB, MB, GB, ...)."
-msgstr "Maximální velikost nahrávaného souboru v bytech. Můžete použít přípony běžné velikosti (kB, MB, GB, ...)."
+msgstr ""
+"Maximální velikost nahrávaného souboru v bytech. Můžete použít přípony běžné "
+"velikosti (kB, MB, GB, ...)."
 
-#: models.py:513
+#: models.py:502
 msgid "Maximum image width"
 msgstr "Maximální šířka obrázku"
 
-#: models.py:515
+#: models.py:504
 msgid "The maximum width of the uploaded image, in pixels."
 msgstr "Maximální šířka nahrávaného obrázku v pixelech."
 
-#: models.py:518
+#: models.py:507
 msgid "Maximum image height"
 msgstr "Maximální výška obrázku"
 
-#: models.py:520
+#: models.py:509
 msgid "The maximum height of the uploaded image, in pixels."
 msgstr "Maximální výška nahrávaného obrázku v pixelech."
 
-#: models.py:527 templates/admin/aldryn_forms/display/submission_data.html:5
-msgid "Value"
-msgstr "Hodnota"
-
-#: models.py:529
+#: models.py:518
 msgid "Position"
 msgstr "Pozice"
 
-#: models.py:532
+#: models.py:521
 msgid "Option"
 msgstr "Volba"
 
-#: models.py:533
+#: models.py:522
 msgid "Options"
 msgstr "Volby"
 
-#: models.py:567
+#: models.py:554
 msgid "form name"
 msgstr "jméno formuláře"
 
-#: models.py:573
+#: models.py:560
 msgid "users notified"
 msgstr "Upozornění uživatelé"
 
-#: models.py:575
+#: models.py:562
 msgid "People who got a notification when form was submitted."
 msgstr "Lidé, kteří dostali upozornění po odeslání formuláře."
 
-#: models.py:579
+#: models.py:566
 msgid "form language"
 msgstr "jazyk formuláře"
 
-#: models.py:585
+#: models.py:572
 msgid "form url"
 msgstr "url formuláře"
 
-#: models.py:593
+#: models.py:580
 msgid "Form submission"
 msgstr "Odeslání formuláře"
 
-#: models.py:594
+#: models.py:581
 msgid "Form submissions"
 msgstr "Odeslání formulářů"
-
-#: sizefield/models.py:11
-msgid "Incorrect file size format."
-msgstr "Neplatná velikost souboru."
-
-#: sizefield/utils.py:81
-#, python-format
-msgid "Size '%s' has incorrect format"
-msgstr "Velikost '%s' má nesprávný formát."
-
-#: templates/admin/aldryn_forms/display/submission_data.html:3
-msgid "Field"
-msgstr "Pole"
-
-#: templates/admin/aldryn_forms/export.html:5
-msgid "Export form submissions"
-msgstr "Exportovat odeslané formuláře"
-
-#: templates/admin/aldryn_forms/export.html:8
-msgid "Please correct the error below."
-msgid_plural "Please correct the errors below."
-msgstr[0] "Opravte chybu níže."
-msgstr[1] "Opravte chyby níže."
-
-#: templates/admin/aldryn_forms/export.html:30
-#: templates/admin/aldryn_forms/export_wizard.html:11
-msgid "Export"
-msgstr "Export"
-
-#: templates/admin/aldryn_forms/export_wizard.html:13
-msgid "Continue"
-msgstr "Pokračovat"
-
-#: templates/admin/aldryn_forms/formsubmission/change_list.html:9
-msgid "Export Form Entries"
-msgstr "Exportovat položky formuláře"
-
-#: templates/aldryn_forms/email_notifications/emails/notification.body.html:9
-#: templates/aldryn_forms/email_notifications/emails/notification.body.txt:8
-#: templates/aldryn_forms/emails/notification.body.html:3
-#: templates/aldryn_forms/emails/notification.body.txt:2
-#: templates/aldryn_forms/emails/user/notification.body.txt:7
-#, python-format
-msgid "Form name: %(form_name)s"
-msgstr "Jméno formuláře: %(form_name)s"
-
-#: templates/aldryn_forms/email_notifications/emails/notification.subject.txt:1
-#: templates/aldryn_forms/emails/notification.subject.txt:1
-#: templates/aldryn_forms/emails/user/notification.subject.txt:1
-#, python-format
-msgid "[Form submission] %(form_name)s"
-msgstr "[Odeslání formuláře] %(form_name)s"
-
-#: templates/aldryn_forms/field.html:14
-#: templates/aldryn_forms/fields/multiplecheckboxselectfield.html:9
-msgid "Required field"
-msgstr "Povinné pole"
 
 #: templates/aldryn_forms/form.html:17
 #, python-format
 msgid "You will be <a href=\"%(form_success_url)s\">redirected shortly</a>."
-msgstr "Během chvilky budete přesměrováni na <a href=\"%(form_success_url)s\">tuto adresu</a>."
+msgstr ""
+"Během chvilky budete přesměrováni na <a href=\"%(form_success_url)s\">tuto "
+"adresu</a>."
 
-#: templates/aldryn_forms/form.html:21
-msgid "Thank you for submitting your information."
-msgstr "Děkujeme Vám za vyplnění formuláře."
-
-#: validators.py:33
+#: validators.py:35
 #, python-format
 msgid ""
 "You have to choose at least %(limit_value)d options (chosen %(show_value)d)."
 msgstr "Zvolte alespoň %(limit_value)d z možností (zvoleno %(show_value)d)."
 
-#: validators.py:39
+#: validators.py:41
 #, python-format
 msgid ""
 "You can't choose more than %(limit_value)d options (chosen %(show_value)d)."
-msgstr "Nelze zvolit více než %(limit_value)d možností (zvoleno %(show_value)d)."
+msgstr ""
+"Nelze zvolit více než %(limit_value)d možností (zvoleno %(show_value)d)."
