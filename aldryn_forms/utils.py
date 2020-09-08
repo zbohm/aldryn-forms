@@ -11,14 +11,7 @@ from cms.utils.plugins import downcast_plugins
 
 from .action_backends_base import BaseAction
 from .compat import build_plugin_tree
-
-
-DEFAULT_ALDRYN_FORMS_ACTION_BACKENDS = {
-    'default': 'aldryn_forms.action_backends.DefaultAction',
-    'email_only': 'aldryn_forms.action_backends.EmailAction',
-    'none': 'aldryn_forms.action_backends.NoAction',
-}
-ALDRYN_FORMS_ACTION_BACKEND_KEY_MAX_SIZE = 15
+from .constants import ALDRYN_FORMS_ACTION_BACKEND_KEY_MAX_SIZE, DEFAULT_ALDRYN_FORMS_ACTION_BACKENDS
 
 
 def get_action_backends():
