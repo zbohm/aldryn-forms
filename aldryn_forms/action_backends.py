@@ -25,6 +25,7 @@ class EmailAction(BaseAction):
     def form_valid(self, cmsplugin, instance, request, form):
         recipients = cmsplugin.send_notifications(instance, form)
         logger.info('Sent email notifications to {} recipients.'.format(len(recipients)))
+        cmsplugin.send_success_message(instance, request)
 
 
 class NoAction(BaseAction):
