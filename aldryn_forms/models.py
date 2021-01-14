@@ -557,14 +557,15 @@ class FormButtonPlugin(CMSPlugin):
         return self.label
 
 
-@python_2_unicode_compatible
-class FormSubmission(models.Model):
+class FormSubmissionBase(models.Model):
+
     name = models.CharField(
         max_length=255,
         verbose_name=_('form name'),
         db_index=True,
         editable=False
     )
+
     data = models.TextField(blank=True, editable=False)
     recipients = models.TextField(
         verbose_name=_('users notified'),
@@ -586,9 +587,7 @@ class FormSubmission(models.Model):
     sent_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        ordering = ['-sent_at']
-        verbose_name = _('Form submission')
-        verbose_name_plural = _('Form submissions')
+        abstract = True
 
     def __str__(self):
         return self.name
@@ -647,3 +646,12 @@ class FormSubmission(models.Model):
         raw_recipients = [
             {'name': rec[0], 'email': rec[1]} for rec in recipients]
         self.recipients = json.dumps(raw_recipients)
+
+
+@python_2_unicode_compatible
+class FormSubmission(FormSubmissionBase):
+
+    class Meta:
+        ordering = ['-sent_at']
+        verbose_name = _('Form submission')
+        verbose_name_plural = _('Form submissions')
