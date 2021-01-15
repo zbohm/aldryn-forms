@@ -8,7 +8,6 @@ from django.conf import settings
 from django.utils import formats, six
 from django.utils.translation import ugettext as _
 
-
 if sys.version_info >= (3, 0):
     xrange = range
 
