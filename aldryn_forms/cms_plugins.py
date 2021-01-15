@@ -5,7 +5,6 @@ from django.db.models import query
 from django.contrib import messages
 from django.contrib.admin import TabularInline
 from django.core.validators import MinLengthValidator
-from django.db.models import query
 from django.template.loader import select_template
 from django.utils.safestring import mark_safe
 from django.utils.six import text_type

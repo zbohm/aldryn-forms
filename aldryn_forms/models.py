@@ -15,7 +15,7 @@ from django.utils.translation import ugettext_lazy as _
 from cms.cms_plugins import AliasPlugin
 from cms.models.fields import PageField
 from cms.models.pluginmodel import CMSPlugin
-from cms.utils.plugins import build_plugin_tree, downcast_plugins
+from cms.utils.plugins import downcast_plugins
 from djangocms_attributes_field.fields import AttributesField
 from filer.fields.folder import FilerFolderField
 
