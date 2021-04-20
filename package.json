@@ -1,0 +1,27 @@
+{
+  "name": "aldryn-forms",
+  "version": "1.0.0",
+  "description": "Aldryn forms javascript.",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "check": "eslint aldryn_forms/static/aldryn_forms/js/src",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zbohm/aldryn-forms.git"
+  },
+  "author": "Zdeněk Böhm",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zbohm/aldryn-forms/issues"
+  },
+  "homepage": "https://github.com/zbohm/aldryn-forms#readme",
+  "dependencies": {
+    "eslint": "^7.24.0",
+    "webpack": "^5.34.0",
+    "webpack-cli": "^4.6.0"
+  }
+}
