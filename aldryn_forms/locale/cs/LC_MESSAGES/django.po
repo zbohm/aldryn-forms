@@ -723,3 +723,6 @@ msgid ""
 "You can't choose more than %(limit_value)d options (chosen %(show_value)d)."
 msgstr ""
 "Nelze zvolit více než %(limit_value)d možností (zvoleno %(show_value)d)."
+
+msgid "If checkbox \"Field is required\" is set, \"Min choices\" must be at least 1."
+msgstr "Je-li zatrženo \"Toto pole je povinné\", tak \"Minimální výběr\" musí být minimálně 1."
