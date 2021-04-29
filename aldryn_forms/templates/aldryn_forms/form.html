@@ -18,9 +18,11 @@
     {% endif %}
 
     {% if post_success %}
-        <p>
+        <p class="aldryn-form-success-message">
             {% if form_success_url %}
-                {% blocktrans %}You will be <a href="{{ form_success_url }}">redirected shortly</a>.{% endblocktrans %}
+                <span class="you-will-be-redirected shortly">
+                    {% blocktrans %}You will be <a href="{{ form_success_url }}">redirected shortly</a>.{% endblocktrans %}
+                </span>
             {% elif instance.success_message %}
                 {{ instance.success_message }}
             {% else %}
