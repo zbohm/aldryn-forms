@@ -18,16 +18,19 @@
     {% endif %}
 
     {% if post_success %}
-        <p>
-            {% if form_success_url %}
-                {% blocktrans %}You will be <a href="{{ form_success_url }}">redirected shortly</a>.{% endblocktrans %}
-            {% elif instance.success_message %}
+        <p class="aldryn-form-success-message">
+            {% if instance.success_message %}
                 {{ instance.success_message }}
             {% else %}
                 {% blocktrans %}Thank you for submitting your information.{% endblocktrans %}
             {% endif %}
         </p>
-    {% else %}
+        {% if form_success_url %}
+        <p class="aldryn-form-redirected-shortly">
+            {% blocktrans %}You will be <a href="{{ form_success_url }}">redirected shortly</a>.{% endblocktrans %}
+        </p>
+    {% endif %}
+{% else %}
         {% csrf_token %}
         {% for plugin in instance.child_plugin_instances %}
             {% render_plugin plugin %}
