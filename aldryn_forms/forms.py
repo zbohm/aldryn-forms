@@ -220,7 +220,7 @@ class MinMaxValueForm(ExtandableErrorForm):
         max_value = self.cleaned_data.get('max_value')
         if min_value and max_value and min_value > max_value:
             self.append_to_errors('min_value', _(u'Min value can not be greater than max value.'))
-        if self.cleaned_data.get('required') and min_value < 1:
+        if self.cleaned_data.get('required') and min_value is not None and min_value < 1:
             self.append_to_errors('min_value', _('If checkbox "Field is required" is set, "Min choices" must be at least 1.'))
         return self.cleaned_data
 
