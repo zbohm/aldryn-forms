@@ -135,34 +135,24 @@ class BaseFormSubmissionAdmin(admin.ModelAdmin):
     def get_form_export_view(self):
         raise NotImplementedError
 
-    def export_field_parse_data(self, value):
+    def export_field_parse_data(self, submission):
         """Parse export form field data."""
-        fields = {}
-        values = {}
-        if value is None or value == "":
-            return fields, values
-        for form_data in json.loads(value):
-            # form_data: {'name': 'Name', 'label': 'The Name', 'field_occurrence': 1, 'value': ''}
-            field_value = form_data["value"]
-            if field_value:
-                fields[form_data['name']] = form_data['label']
-                values[form_data['name']] = field_value
-
+        fields, values = {}, {}
+        for serialized_form_field in submission.get_form_data():
+            if serialized_form_field.value:
+                fields[serialized_form_field.field_id] = serialized_form_field.label
+                values[serialized_form_field.field_id] = serialized_form_field.value
         return fields, values
 
-    def export_field_parse_recipients(self, value):
+    def export_field_parse_recipients(self, submission):
         """Parse export form field recipients."""
-        fields = {}
-        values = {}
-        if value is None or value == "":
-            return fields, values
-        for form_data in json.loads(value):
-            # form_data: {'name': '', 'email': 'user@foo.foo'}
-            for name, label in (('email', _("E-mail")), ('name', _('Name'))):
-                field_value = form_data[name]
-                if field_value:
-                    fields[name] = label
-                    values[name] = field_value
+        fields, values = {'email': _("E-mail")}, {}
+        for recipient in submission.get_recipients():
+            values['email'] = recipient.email
+            if recipient.name:
+                values['name'] = recipient.name
+                if 'name' not in fields:
+                    fields['name'] = _('Name')
         return fields, values
 
     def export_dataset_and_labels(self, queryset):
@@ -171,14 +161,16 @@ class BaseFormSubmissionAdmin(admin.ModelAdmin):
         extra_field_labels = {}
         cols = {name: label for name, label, json_data in self.export_fields}
         unique_codes = []
-        for form_submission in queryset:
+        for submission in queryset:
             data_item = {}
             for field_name, field_label, field_json_data in self.export_fields:
-                field_value = getattr(form_submission, field_name)
+                field_value = getattr(submission, field_name)
+                if field_value is None or field_value == "":
+                    continue
                 if field_json_data:
                     fnc = getattr(self, "export_field_parse_{}".format(field_name), None)
                     if fnc is not None:
-                        field_columns, field_values = fnc(field_value)
+                        field_columns, field_values = fnc(submission)
                         data_item[field_name] = field_values
                         for name, label in field_columns.items():
                             field_key = FieldKey(field_name, name)
