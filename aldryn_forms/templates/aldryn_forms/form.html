@@ -1,4 +1,4 @@
-{% load i18n cms_tags sekizai_tags static %}
+{% load i18n cms_tags sekizai_tags static aldryn_forms_tags %}
 
 {% addtoblock "js" %}
     <script src="{% static "aldryn_forms/js/main.js" %}"></script>
@@ -18,13 +18,13 @@
     {% endif %}
 
     {% if post_success %}
-        <p class="aldryn-form-success-message">
+        <div class="aldryn-form-success-message{% if instance.success_message %} markdown{% endif %}">
             {% if instance.success_message %}
-                {{ instance.success_message }}
+                {{ instance.success_message|markdown }}
             {% else %}
-                {% blocktrans %}Thank you for submitting your information.{% endblocktrans %}
+                <p>{% blocktrans %}Thank you for submitting your information.{% endblocktrans %}</p>
             {% endif %}
-        </p>
+        </div>
         {% if form_success_url %}
         <p class="aldryn-form-redirected-shortly">
             {% blocktrans %}You will be <a href="{{ form_success_url }}">redirected shortly</a>.{% endblocktrans %}

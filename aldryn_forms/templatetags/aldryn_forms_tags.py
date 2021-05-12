@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+import markdown as markdown_module
+
 from django import template
 from django.utils import encoding
 from django.utils.safestring import mark_safe
@@ -33,3 +35,8 @@ def force_text(val):
 @register.filter()
 def force_text_list(val):
     return [encoding.force_text(v) for v in val]
+
+
+@register.filter()
+def markdown(text):
+    return mark_safe(markdown_module.markdown(text))

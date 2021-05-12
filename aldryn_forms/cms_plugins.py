@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+import markdown
+
 from django import forms
 from django.conf import settings
 from django.db.models import query
@@ -187,7 +189,10 @@ class FormPlugin(FieldContainer):
         Sends a success message to the request user
         using django's contrib.messages app.
         """
-        message = instance.success_message or ugettext('The form has been sent.')
+        if instance.success_message:
+            message = markdown.markdown(instance.success_message)
+        else:
+            message = ugettext('The form has been sent.')
         messages.success(request, mark_safe(message))
 
     def send_notifications(self, instance, form):
