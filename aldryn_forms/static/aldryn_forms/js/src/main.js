@@ -15,10 +15,12 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!form.classList.contains("skip-disable-submit")) {
                 form.addEventListener('submit', (event) => disableButtonSubmit(event, false))
             }
-            form.addEventListener('submit', handleRequiredFields)
-            // Enable submit button if required were set.
-            for (const element of form.querySelectorAll(".form-required input[type=checkbox]")) {
-                element.addEventListener('click', handleFormRequiredCheckbox)
+            if (!form.getAttribute("novalidate-checkbox-groups")) {
+                // Enable submit button if required were set.
+                form.addEventListener('submit', handleRequiredFields)
+                for (const element of form.querySelectorAll(".form-required input[type=checkbox]")) {
+                    element.addEventListener('click', handleFormRequiredCheckbox)
+                }
             }
         }
     }
