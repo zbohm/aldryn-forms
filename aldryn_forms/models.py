@@ -23,7 +23,7 @@ from .compat import build_plugin_tree
 from .helpers import is_form_element
 from .sizefield.models import FileSizeField
 from .utils import (ALDRYN_FORMS_ACTION_BACKEND_KEY_MAX_SIZE,
-                    action_backend_choices)
+                    action_backend_choices, get_action_backends)
 
 AUTH_USER_MODEL = getattr(settings, 'AUTH_USER_MODEL', 'auth.User')
 
@@ -481,6 +481,20 @@ class EmailFieldPlugin(FieldPluginBase):
         help_text=_('Additional body text used when email notifications '
                     'are active.')
     )
+
+    def get_parent_form(self):
+        parent = self.get_parent()
+        while parent is not None:
+            if parent.plugin_type in ("FormPlugin", "EmailNotificationForm"):
+                break
+            parent = parent.get_parent()
+        return parent
+
+    def get_parent_form_action_backend(self):
+        parent = self.get_parent_form()
+        if parent is not None:
+            return parent, get_action_backends().get(parent.get_plugin_instance()[0].action_backend)
+        return None, None
 
 
 class FileFieldPluginBase(FieldPluginBase):

@@ -10,7 +10,7 @@ from PIL import Image
 
 from .models import FormPlugin, FormSubmission
 from .sizefield.utils import filesizeformat
-from .utils import add_form_error, get_user_model
+from .utils import add_form_error, get_action_backends, get_user_model
 
 
 class FileSizeCheckMixin(object):
@@ -178,6 +178,11 @@ class FormPluginForm(ExtandableErrorForm):
             self.cleaned_data['url'] = None
             self.cleaned_data['redirect_page'] = None
 
+        action_backend = get_action_backends().get(self.cleaned_data.get('action_backend'))
+        if action_backend is not None:
+            error = getattr(action_backend, "clean_form", lambda form: None)(self)
+            if error:
+                self.append_to_errors('action_backend', error)
         return self.cleaned_data
 
 
@@ -268,6 +273,15 @@ class EmailFieldForm(TextFieldForm):
             'email_body',
             'custom_classes',
         ]
+
+    def clean(self):
+        if "name" in self.changed_data:
+            _, action_backend = self.instance.get_parent_form_action_backend()
+            if action_backend is not None:
+                error = getattr(action_backend, "clean_field", lambda form: None)(self)
+                if error:
+                    self.append_to_errors('name', error)
+        return super().clean()
 
 
 class FileFieldForm(forms.ModelForm):
